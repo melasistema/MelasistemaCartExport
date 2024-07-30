@@ -1,0 +1,13 @@
+{% sw_extends '@Storefront/storefront/component/checkout/offcanvas-cart.html.twig' %}
+
+{% block component_offcanvas_cart_actions_cart %}
+
+    {{ parent() }}
+
+    {% if context.customer and isCartNotEmpty %}
+        <div class="d-grid">
+            {% include "@MelasistemaCartExport/storefront/component/checkout/export-cart-button.html.twig" ignore missing %}
+        </div>
+    {% endif %}
+
+{% endblock %}

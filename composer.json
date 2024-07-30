@@ -1,0 +1,51 @@
+{
+  "name": "melasistema/shopware6-cart-export",
+  "description": "Simple Cart Export - Shopware Plugin",
+  "version": "0.0.1",
+  "type": "shopware-platform-plugin",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Melasistema",
+      "role": "Manufacturer"
+    },
+    {
+      "name": "Luca Visciola",
+      "role": "Full Stack Developer"
+    }
+  ],
+  "require": {
+    "shopware/core": "~6.5.0",
+    "shopware/storefront": "~6.5.0"
+  },
+  "extra": {
+    "shopware-plugin-class": "MelasistemaCartExport\\MelasistemaCartExport",
+    "plugin-icon": "src/Resources/config/plugin.png",
+    "copyright": "melasistema",
+    "label": {
+      "en-GB": "Melasistema simple cart export",
+      "it-IT": "Melasistema simple cart export",
+      "de-DE": "Melasistema simple cart export"
+    },
+    "description": {
+      "en-GB": "Melasistema simple cart export",
+      "it-IT": "Melasistema simple cart export",
+      "de-DE": "Melasistema simple cart export"
+    },
+    "manufacturerLink": {
+      "en-GB": "https://melasistema.com",
+      "it-IT": "https://melasistema.com",
+      "de-DE": "https://melasistema.com"
+    },
+    "supportLink": {
+      "en-GB": "https://lucavisciola.com",
+      "it-IT": "https://lucavisciola.com",
+      "de-DE": "https://lucavisciola.com"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "MelasistemaCartExport\\": "src/"
+    }
+  }
+}

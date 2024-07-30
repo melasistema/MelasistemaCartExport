@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <!-- Logger service -->
+        <service id="melasistema.cart.export.logger" class="Monolog\Logger">
+            <factory service="Shopware\Core\Framework\Log\LoggerFactory" method="createRotating" />
+            <argument type="string">melasistema.cart.export.logger</argument>
+        </service>
+
+        <!-- Export service -->
+        <service id="melasistema.cart_export.service" class="MelasistemaCartExport\Service\CartExportService" public="true">
+            <argument type="service" id="melasistema.cart.export.logger" />
+            <argument type="service" id="Symfony\Component\Filesystem\Filesystem" />
+            <argument>%kernel.project_dir%</argument>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService" />
+        </service>
+
+        <!-- Subscriber -->
+        <service id="MelasistemaCartExport\Subscriber\CartUpdateSubscriber">
+            <argument type="service" id="melasistema.cart.export.logger" />
+            <argument type="service" id="melasistema.cart_export.service" />
+            <tag name="kernel.event_subscriber" />
+        </service>
+
+        <!-- Controller -->
+        <service id="MelasistemaCartExport\Storefront\Controller\CartExportController" class="MelasistemaCartExport\Storefront\Controller\CartExportController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <argument type="service" id="melasistema.cart.export.logger" />
+            <argument>%kernel.project_dir%</argument>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService" />
+            <argument type="service" id="melasistema.cart_export.service" />
+            <call method="setTwig">
+                <argument type="service" id="twig"/>
+            </call>
+        </service>
+
+    </services>
+
+</container>
