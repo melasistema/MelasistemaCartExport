@@ -2,7 +2,6 @@
 
 ### Easily export your shopping cart contents as a CSV file for logged-in customers!
 
-This plugin provides a straightforward way to export the current cart contents as a CSV file in Shopware 6 for logged in customers. It leverages the `%kernel.project_dir%` variable and `Simfony FileSystem` to save the exported cart data to the root directory of your project.
 
 **Ideal for:**
 
