@@ -5,9 +5,6 @@
 
 **Ideal for:**
 
-Small and medium-sized e-commerce stores with low to moderate traffic
-Quick and convenient cart data export for analysis or record-keeping
-
 -   Small and medium-sized e-commerce stores with low to moderate traffic
 -   Quick and convenient cart data export for analysis or record-keeping
 
